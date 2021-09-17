@@ -4,6 +4,7 @@ import com.fiordes.heroku.herokube.api.UserE
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 import java.util.*
 
 @SpringBootApplication
@@ -16,13 +17,12 @@ fun main(args: Array<String>) {
 
 interface TestApi {
 
-	@RequestMapping("/pippo")
-	fun testMe(reqNum: String): String
+	@RequestMapping("/isAlive")
+	fun testMe(): String
 }
 
-class TestController: TestApi {
-	override fun testMe(reqNum: String): String {
-		val u = UserE(UUID.randomUUID(), "pippo", "pippo@email")
+@RestController class TestController: TestApi {
+	override fun testMe(): String {
 		return "I'm alive and running!";
 	}
 }
