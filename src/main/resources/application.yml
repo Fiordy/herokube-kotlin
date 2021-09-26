@@ -1,0 +1,13 @@
+db:
+  postgresql:
+    uri: postgres://exazptjkljhadr:337d0dd270ea692dd35923984e2308d8087505fe94cdd1013e68cff5f9211ce9@ec2-54-155-254-112.eu-west-1.compute.amazonaws.com:5432/d2b7v0r0vq864h
+    user: exazptjkljhadr
+    pwd: 337d0dd270ea692dd35923984e2308d8087505fe94cdd1013e68cff5f9211ce9
+    port: 5432
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${db.postgresql.uri}
+    username: ${db.postgresql.user}
+    password: ${db.postgresql.pwd}
