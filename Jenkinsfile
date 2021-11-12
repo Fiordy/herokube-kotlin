@@ -16,7 +16,7 @@ pipeline {
         stage('Build') { 
             steps {
                 echo 'Building code...'
-                sh 'mvn build -DskipTests'
+                sh 'mvnw build -DskipTests'
                 echo 'Build'
             }
         }
