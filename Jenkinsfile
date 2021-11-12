@@ -1,10 +1,11 @@
+
+/* variables */
+def repo = 'https://github.com/Fiordy/herokube-kotlin.git'
+
 pipeline {
     agent any
-    
-    /* variables */
-    def repo = 'https://github.com/Fiordy/herokube-kotlin.git'
+   
     stages {
-        
         
         stage('Downloading code') { 
             steps {
