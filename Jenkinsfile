@@ -14,7 +14,7 @@ pipeline {
                     sh 'git fetch && git pull'
                 } catch (Exception e){
                     echo 'No previous repo, cloning...'
-                    sh 'git clone https://github.com/Fiordy/herokube-kotlin.git
+                    sh 'git clone https://github.com/Fiordy/herokube-kotlin.git'
                 echo 'Downloaded'
             }
         }
