@@ -8,9 +8,8 @@ pipeline {
         
         stage('Downloading code') { 
             steps {
-                def repo = 'https://github.com/Fiordy/herokube-kotlin.git'
                 echo 'Downloading code...'
-                sh 'git clone ${repo}'
+                sh 'git clone https://github.com/Fiordy/herokube-kotlin.git'
                 echo 'Downloaded'
             }
         }
