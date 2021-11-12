@@ -1,6 +1,5 @@
 
 /* variables */
-def repo = 'https://github.com/Fiordy/herokube-kotlin.git'
 
 pipeline {
     agent any
@@ -9,6 +8,7 @@ pipeline {
         
         stage('Downloading code') { 
             steps {
+                def repo = 'https://github.com/Fiordy/herokube-kotlin.git'
                 echo 'Downloading code...'
                 sh 'git clone ${repo}'
                 echo 'Downloaded'
