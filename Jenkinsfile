@@ -9,7 +9,12 @@ pipeline {
         stage('Downloading code') { 
             steps {
                 echo 'Downloading code...'
-                sh 'git clone https://github.com/Fiordy/herokube-kotlin.git'
+                try {
+                    echo 'Updating code...'
+                    sh 'git fetch && git pull'
+                } catch (Exception e){
+                    echo 'No previous repo, cloning...'
+                    sh 'git clone https://github.com/Fiordy/herokube-kotlin.git
                 echo 'Downloaded'
             }
         }
