@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    repo = 'httos::/github.com/Fiordy/herokube-kotlin.git'
+    repo = 'https://github.com/Fiordy/herokube-kotlin.git'
    
     stages {
         stage('Downloading code') { 
