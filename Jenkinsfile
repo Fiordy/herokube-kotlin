@@ -1,8 +1,10 @@
 pipeline {
     agent any
-    repo = 'https://github.com/Fiordy/herokube-kotlin.git'
+    
    
     stages {
+        repo = 'https://github.com/Fiordy/herokube-kotlin.git'
+        
         stage('Downloading code') { 
             steps {
                 echo 'Downloading code...'
