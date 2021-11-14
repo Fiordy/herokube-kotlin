@@ -22,13 +22,18 @@ pipeline {
         stage('Test') { 
             steps {
                 echo 'Running tests...'
-                sh './mvnw test'
             }
         }
         stage('Containerize'){
             steps {
                 echo 'Meaningless step'
             }   
+        }
+        stage('Flyway validation'){
+            steps {
+                echo 'Running Flyway validation...'
+                sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:validate'
+            }
         }
     }
 }
