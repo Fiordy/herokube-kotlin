@@ -1,8 +1,8 @@
 db:
   postgresql:
-    uri: postgres://tai.db.elephantsql.com/ugynnzea
-    user: exazptjkljhadr
-    pwd: 337d0dd270ea692dd35923984e2308d8087505fe94cdd1013e68cff5f9211ce9
+    uri: jdbc:postgresql://tai.db.elephantsql.com/ugynnzea
+    user: ugynnzea
+    pwd: 3boAI3TvmeEURbypvQVPcwGfEV1c1yPW
     port: 5432
 
 spring:
