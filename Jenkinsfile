@@ -39,8 +39,10 @@ pipeline {
             }
         } catch (Exception e){
             try {
-                sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:repair'
-                sh 'Repair was successful!'
+                stage('Flyway repair'){
+                    sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:repair'
+                    sh 'Repair was successful!'
+                }
             } catch (Exception e2){
                 throw e2
             }
