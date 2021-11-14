@@ -6,7 +6,7 @@ pipeline {
    
     stages {
         
-        stage('Downloading code') { 
+        stage('Update') { 
             steps {
                 echo 'Downloading code...'
                 echo 'Updating code...'
@@ -16,15 +16,18 @@ pipeline {
         stage('Build') { 
             steps {
                 echo 'Building code...'
-                sh 'mvn build -DskipTests'
+                sh './mvnw build -DskipTests'
                 echo 'Build'
             }
         }
         stage('Test') { 
             steps {
                 echo 'Running tests...'
-                sh 'mvn test'
+                sh './mvnw test'
             }
+        }
+        stage('Containerize'){
+            //
         }
     }
 }
