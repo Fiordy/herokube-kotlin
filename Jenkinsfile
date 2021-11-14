@@ -29,16 +29,20 @@ pipeline {
                 echo 'Meaningless step'
             }   
         }
-        stage('Flyway validation'){
-            steps {
-                echo 'Running Flyway validation...'
-                try {
-                    sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:validate'
-                    echo 'Validation failed, trying to repair...'
-                } catch (Exception e){
-                    sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:repair'
-                    sh 'Repair was successful!'
+        try {
+            stage('Flyway validation'){
+                steps {
+                    echo 'Running Flyway validation...'
+                        sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:validate'
+                        echo 'Validation failed, trying to repair...'
                 }
+            }
+        } catch (Exception e){
+            try {
+                sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:repair'
+                sh 'Repair was successful!'
+            } catch (Exception e){
+                throw e
             }
         }
     }
