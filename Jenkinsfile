@@ -10,13 +10,12 @@ pipeline {
             steps {
                 echo 'Downloading code...'
                 echo 'Updating code...'
-                sh 'git fetch && git pull'
             }
         }
         stage('Build') { 
             steps {
                 echo 'Building code...'
-                sh './mvnw build -DskipTests'
+                sh './mvnw install -DskipTests'
                 echo 'Build'
             }
         }
