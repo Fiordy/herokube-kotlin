@@ -32,7 +32,7 @@ pipeline {
         stage('Flyway validation'){
             steps {
                 echo 'Running Flyway validation...'
-                sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:validate'
+                sh './mvnw -Dflyway.configFiles=src/main/resources/application.yml flyway:validate'
             }
         }
     }
