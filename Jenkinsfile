@@ -30,18 +30,12 @@ pipeline {
             }   
         }
         stage('Flyway validation'){
-            try {
                 steps {
+                    sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:repair'
                     echo 'Running Flyway validation...'
                     sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:validate'
                     echo 'Validation failed, trying to repair...'
                 }
-            } catch (err){
-                steps {
-                    sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:repair'
-                    sh 'Repair was successful!'
-                }
-            }
         }
     }
 }
