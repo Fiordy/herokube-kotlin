@@ -38,8 +38,9 @@ pipeline {
                 }
             } catch (err){
                 steps {
-                sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:repair'
-                sh 'Repair was successful!'
+                    sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:repair'
+                    sh 'Repair was successful!'
+                }
             }
         }
     }
