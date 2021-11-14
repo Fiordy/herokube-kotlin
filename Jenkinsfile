@@ -28,6 +28,7 @@ pipeline {
         }
         stage('Containerize'){
             steps {
+                echo 'Meaningless step'
             }   
         }
     }
