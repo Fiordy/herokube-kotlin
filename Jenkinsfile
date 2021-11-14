@@ -32,7 +32,13 @@ pipeline {
         stage('Flyway validation'){
             steps {
                 echo 'Running Flyway validation...'
-                sh './mvnw -Dflyway.configFiles=src/main/resources/application.yml flyway:validate'
+                try {
+                    sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:validate'
+                    echo 'Validation failed, trying to repair...'
+                } catch (Exception e){
+                    sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:repair'
+                    sh 'Repair was successful!'
+                }
             }
         }
     }
