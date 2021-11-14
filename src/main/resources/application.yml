@@ -11,10 +11,3 @@ spring:
     url: ${db.postgresql.uri}
     username: ${db.postgresql.user}
     password: ${db.postgresql.pwd}
-flyway:
-  enabled: false
-  url: ${db.postgresql.uri}
-  user: ${db.postgresql.user}
-  password: ${db.postgresql.pwd}
-  schema: mega_schema
-  baseline-on-migrate: false
