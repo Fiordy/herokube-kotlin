@@ -6,24 +6,33 @@ pipeline {
    
     stages {
         
-        stage('Downloading code') { 
+        stage('Update') { 
             steps {
                 echo 'Downloading code...'
                 echo 'Updating code...'
-                sh 'git fetch && git pull'
             }
         }
         stage('Build') { 
             steps {
                 echo 'Building code...'
-                sh 'mvn build -DskipTests'
+                sh './mvnw install -DskipTests'
                 echo 'Build'
             }
         }
         stage('Test') { 
             steps {
                 echo 'Running tests...'
-                sh 'mvn test'
+            }
+        }
+        stage('Containerize'){
+            steps {
+                echo 'Meaningless step'
+            }   
+        }
+        stage('Flyway validation'){
+            steps {
+                echo 'Running Flyway validation...'
+                sh './mvnw -Dflyway.configFiles=src/main/resources/application.properties flyway:validate'
             }
         }
     }
