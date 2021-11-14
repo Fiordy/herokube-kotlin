@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Containerize'){
             steps {
-                
+            }   
         }
     }
 }
